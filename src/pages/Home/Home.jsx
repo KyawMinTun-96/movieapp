@@ -1,19 +1,20 @@
-import React, { useContext } from 'react'
+import React from 'react'
+// import { useContext } from 'react'
+// import { Context } from '../../Context/Context'
+import MovieCard from '../../components/MovieCard/MovieCard'
 import './Home.css'
-import { Context } from '../../Context/Context'
-
 const Home = () => {
 
-  const { assets, trendingMovies } = useContext(Context);
-  const result = trendingMovies.results || [];
+  // const { assets, trendingMovies } = useContext(Context);
+  // const result = trendingMovies.results || [];
 
-  console.log(assets);
-  console.log(result);
+  // console.log(assets);
+  // console.log(result);
 
 
   return (
     <div className='home'>
-        <h1>Home Page</h1>
+        <MovieCard />
     </div>
   )
 }

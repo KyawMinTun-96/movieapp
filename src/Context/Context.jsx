@@ -8,6 +8,7 @@ const ContextProvider = (props) => {
 
     // TMDB API
     const [trendingMovies, setTrendingMovies] = useState([]);
+    const imageURL = 'https://image.tmdb.org/t/p/w500/';
     axios.defaults.baseURL = 'https://api.themoviedb.org/3';
     axios.defaults.headers.common['Authorization'] = `Bearer ${process.env.REACT_APP_TMDB_ACCESS_TOKEN}`
 
@@ -30,6 +31,7 @@ const ContextProvider = (props) => {
     const contextValue = {
         assets,
         trendingMovies,
+        imageURL,
         setTrendingMovies
     }
 
