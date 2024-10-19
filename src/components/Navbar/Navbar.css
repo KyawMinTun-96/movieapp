@@ -119,6 +119,10 @@
 }
 
 @media (max-width: 750px) {
+    .navbar {
+        padding: 0px;
+    }
+
     .navbar .nav-left .logo {
         width: max(2vw, 70px);
     }
