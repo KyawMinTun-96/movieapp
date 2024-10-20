@@ -1,0 +1,50 @@
+.explore {
+    padding: 100px 0px 0px;
+}
+
+.explore h2 {
+    text-transform: capitalize;
+    font-size: max(2vw, 30px);
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.explore-card .movie-card .card-slider {
+    display: none;
+}
+
+.explore-card .movie-card-body {
+    display: grid;
+    grid-auto-flow: unset;
+    grid-template-columns: repeat(auto-fill, minmax(187px, 1fr));
+    gap: 23px;
+    padding-bottom: 10px; 
+    overflow-x: unset;
+    scroll-snap-type: unset;
+}
+
+.explore-card .card-body:hover {
+    scale: 1.1;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+}
+
+.explore-card .card-trending {
+    display: none;
+}
+
+
+@media (min-width: 1420px) {
+    .explore-card .movie-card-body {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+}
+
+@media (max-width: 900px) {
+    .explore-card .movie-card-body {
+        grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    }
+}

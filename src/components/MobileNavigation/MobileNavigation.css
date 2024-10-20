@@ -31,6 +31,15 @@
     font-weight: 500;
 }
 
+.mobile-active {
+    color: #f8a014;
+    font-weight: 500;
+}
+
+
+
+
+
 @media  (max-width: 750px) {
     .mobile-navbar {
         display: block;

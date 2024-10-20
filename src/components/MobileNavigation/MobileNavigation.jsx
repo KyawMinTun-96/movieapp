@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {NavLink} from 'react-router-dom'
 import './MobileNavigation.css'
 import { MdLocalMovies } from "react-icons/md";
@@ -7,23 +7,41 @@ import { MdLiveTv } from "react-icons/md";
 import { LiaSistrix } from "react-icons/lia";
 
 const MobileNavigation = () => {
+
+    const [isActive, setIsActive] = useState('home');
+
   return (
     <div className='mobile-navbar'>
         <div className='container'>
             <div className='mobile-menu'>
-                <a className='menu-item' href='/'>
+                <NavLink  
+                to='/'
+                onClick = {() => setIsActive('home')} 
+                className ={`menu-item ${isActive === 'home' ? 'mobile-active' : ''}`} >
                     <LiaHomeSolid className='menu-icon' />
                     <span>Home</span>
-                </a>
-                <NavLink className='menu-item' to='/explore'>
+                </NavLink>
+                <NavLink 
+                to='/tv'
+                onClick = {() => setIsActive('tv')} 
+                className ={`menu-item ${isActive === 'tv' ? 'mobile-active' : ''}`}
+                >
                     <MdLiveTv className='menu-icon' />
                     <span>TV Shows</span>
                 </NavLink>
-                <a className='menu-item' href='/'>
+                <NavLink 
+                to='/movie'
+                onClick = {() => setIsActive('movie')} 
+                className ={`menu-item ${isActive === 'movie' ? 'mobile-active' : ''}`}
+                >
                     <MdLocalMovies className='menu-icon' />
                     <span>Movies</span>
-                </a>
-                <NavLink className='menu-item' to='/search'>
+                </NavLink>
+                <NavLink 
+                to='/search'
+                onClick = {() => setIsActive('search')} 
+                className ={`menu-item ${isActive === 'search' ? 'mobile-active' : ''}`}
+                >
                     <LiaSistrix className='menu-icon' />
                     <span>Search</span>
                 </NavLink>

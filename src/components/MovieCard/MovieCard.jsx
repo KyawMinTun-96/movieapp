@@ -5,7 +5,7 @@ import { MdArrowForwardIos } from "react-icons/md";
 import { MdArrowBackIosNew } from "react-icons/md";
 import './MovieCard.css'
 
-const MovieCard = ({data = [], cardType, imageURL}) => {
+const MovieCard = ({data = [], cardType, imageURL, mediaType}) => {
 
     // Reference to the movie-card-body
     const scrollRef = useRef(null);
@@ -33,7 +33,12 @@ const MovieCard = ({data = [], cardType, imageURL}) => {
         <div className='movie-card-body' ref={scrollRef}>
             {
                 data.map((result, index) => (
-                    <Link to={'/' + result?.media_type + '/' + result.id} key={index} className='card-body'>
+                    <Link 
+                    to={
+                        '/' + mediaType + '/' + result.id} 
+                    key={index} 
+                    className='card-body'
+                    >
                         <img src={imageURL + result?.poster_path || result?.backdrop_path} alt='...' />
 
                         <div className='card-trending'>
@@ -41,7 +46,19 @@ const MovieCard = ({data = [], cardType, imageURL}) => {
                         </div>
 
                         <div className='card-info'>
-                            <h4>{(result?.title || result?.name).length > 27 ? (result?.title || result?.name).substring(0, 20) + '...' : result?.title || result?.name }</h4>
+                            <h4>
+                                {   
+                                    result?.title?.length > 25 
+                                    ? result.title.substring(0, 25) + '...'
+                                    :result?.original_title?.length > 25
+                                    ? result.original_title.substring(0, 25) + '...'
+                                    :result?.original_name?.length > 25
+                                    ? result.original_name.substring(0, 25) + '...'
+                                    :result?.title || result?.original_title || result?.original_name
+                                }
+                            </h4>
+
+
                             <div className='card-date'>
                                 <p>{moment(result?.release_date || result?.first_air_date).format('MMM Do YYYY')}</p>
                                 <p>Rating : <span className='card-rating'>{Number(result.vote_average).toFixed(1)}</span></p>

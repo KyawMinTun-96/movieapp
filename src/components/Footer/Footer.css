@@ -1,3 +1,102 @@
 .footer {
     margin-top: 100px;
+    background-color: #19181a;
+    opacity: 0.9;
+    padding: 30px 0px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: space-around;
+    align-items: center;
+    max-width: max(50vw, 200px);
+}
+
+.footer-container img {
+    max-width: max(10vw, 50px);
+}
+
+.footer-container p {
+    color: #fff;
+    font-weight: 400;
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.footer-container .footer-scriber {
+    display: flex;
+    background-color: #363636;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+
+.footer-scriber input {
+    outline: none;
+    border: none;
+    font-size: 13px;
+    background-color: #363636;
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 3px 0px 0px 3px;
+    -webkit-border-radius: 3px 0px 0px 3px;
+    -moz-border-radius: 3px 0px 0px 3px;
+    -ms-border-radius: 3px 0px 0px 3px;
+    -o-border-radius: 3px 0px 0px 3px;
+}
+
+.footer-scriber button {
+    outline: none;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 5px 20px;
+    color: #fff;
+    cursor: pointer;
+    background-color: #f8a014;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+
+
+
+@media (max-width: 750px ) {
+    .footer {
+        padding-bottom: 60px;
+    }
+
+    .footer-container {
+        min-width: 90%;
+        padding: 30px 0;
+    }
+
+    .footer-container img {
+        max-width: max(30vw, 10px);
+    }
+
+    .footer-container .footer-scriber {
+        min-width: 100%;
+        gap: 15px;
+        padding: 15px;
+        flex-direction: column;
+    }
+
+    .footer-scriber input {
+        border: 1px solid #fff;
+    }
+
+    .footer-scriber button {
+        padding: 20px;
+    }
 }

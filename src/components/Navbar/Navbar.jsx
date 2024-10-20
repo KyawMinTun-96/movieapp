@@ -15,9 +15,8 @@ const Navbar = () => {
 
           <ul className='navbar-menu'>
             <li><Link to='/' onClick={() => setMenu('home')} className={menu === 'home' ? 'active' : ''}>Home</Link></li>
-            <li><Link to='/' onClick={() => setMenu('movies')} className={menu === 'movies' ? 'active' : ''}>Movies</Link></li>
-            <li><Link to='/explore' onClick={() => setMenu('tv-shows')} className={menu === 'tv-shows' ? 'active' : ''}>TV Shows</Link></li>
-            <li><Link onClick={() => setMenu('animation')} className={menu === 'animation' ? 'active' : ''}>Animation</Link></li>
+            <li><Link to='/movie' onClick={() => setMenu('movies')} className={menu === 'movies' ? 'active' : ''}>Movies</Link></li>
+            <li><Link to='/tv' onClick={() => setMenu('tv-shows')} className={menu === 'tv-shows' ? 'active' : ''}>TV Shows</Link></li>
           </ul>
         </div>
 

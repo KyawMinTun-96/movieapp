@@ -10,8 +10,9 @@ const ContextProvider = (props) => {
     const [trendingMovies, setTrendingMovies] = useState([]);
     const [nowPlayingMovies, setNowPlayingMovies] = useState([]);
     const [topRatedMovies, setTopRatedMovies] = useState([]);
-    const [popularMovies, setPopularMovies] = useState([]);
+    const [popularTVShowMovies, setPopularTVShowMovies] = useState([]);
     const [upcomingMovies, setUpcomingMovies] = useState([]);
+    const [onTheAir, setOnTheAir] = useState([]);
 
 
     const imageURL = 'https://image.tmdb.org/t/p/w500/';
@@ -34,8 +35,9 @@ const ContextProvider = (props) => {
         fetchData('/movie/top_rated?language=en-US&page=1', setTopRatedMovies);
         fetchData('/trending/all/week?language=en-US', setTrendingMovies);
         fetchData('/movie/now_playing', setNowPlayingMovies);
-        fetchData('/movie/popular', setPopularMovies);
+        fetchData('/tv/popular', setPopularTVShowMovies);
         fetchData('/movie/upcoming', setUpcomingMovies);
+        fetchData('/tv/on_the_air', setOnTheAir);
 
     }, [])
 
@@ -49,10 +51,12 @@ const ContextProvider = (props) => {
         setNowPlayingMovies,
         topRatedMovies,
         setTopRatedMovies,
-        popularMovies,
-        setPopularMovies,
+        popularTVShowMovies,
+        setPopularTVShowMovies,
         upcomingMovies,
-        setUpcomingMovies
+        setUpcomingMovies,
+        onTheAir, 
+        setOnTheAir
     }
 
     return(
