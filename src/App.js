@@ -20,7 +20,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/:explore" element={<Explore />} />
           <Route path="/:explore/:id" element={<Detail />} />
-
+          <Route path="/:movie/:id" element={<Detail />} />
           <Route path="/search" element={<Detail />} />
         </Routes>
 

@@ -1,11 +1,15 @@
 import React, { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import moment from 'moment';
+import { useParams } from 'react-router-dom'
 import { MdArrowForwardIos } from "react-icons/md";
 import { MdArrowBackIosNew } from "react-icons/md";
 import './MovieCard.css'
 
 const MovieCard = ({data = [], cardType, imageURL, mediaType}) => {
+
+    //Get URL parameters
+    const params = useParams();
 
     // Reference to the movie-card-body
     const scrollRef = useRef(null);
@@ -34,8 +38,7 @@ const MovieCard = ({data = [], cardType, imageURL, mediaType}) => {
             {
                 data.map((result, index) => (
                     <Link 
-                    to={
-                        '/' + mediaType + '/' + result.id} 
+                    to={`/${mediaType? (mediaType || params.explore) : params.explore}/${result.id}`} 
                     key={index} 
                     className='card-body'
                     >

@@ -38,7 +38,6 @@ const ContextProvider = (props) => {
         fetchData('/tv/popular', setPopularTVShowMovies);
         fetchData('/movie/upcoming', setUpcomingMovies);
         fetchData('/tv/on_the_air', setOnTheAir);
-
     }, [])
 
 

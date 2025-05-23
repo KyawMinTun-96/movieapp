@@ -11,7 +11,9 @@ const Navbar = () => {
     <div className='nav'>
       <div className='container navbar'>
         <div className='nav-left'>
-          <img src={assets.logo} alt='logo' className='logo' />
+          <a href='/'>
+            <img src={assets.logo} alt='logo' className='logo' />
+          </a>
 
           <ul className='navbar-menu'>
             <li><Link to='/' onClick={() => setMenu('home')} className={menu === 'home' ? 'active' : ''}>Home</Link></li>

@@ -14,7 +14,6 @@ const Home = () => {
   const upcoming = upcomingMovies.results || [];
   const onAir = onTheAir.results || [];
 
-
   return (
     <>
       <Banner />
