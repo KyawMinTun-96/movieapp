@@ -12,6 +12,7 @@ const Detail = () => {
   const params = useParams();
   const [movieDetails, setMovieDetails] = useState([]);
   const [recommands, setRecommands] = useState([]);
+  const [castData, setCastData] = useState([]);
   const { imageURL} = useContext(Context);
 
   useEffect(() => {
@@ -22,6 +23,10 @@ const Detail = () => {
 
         const response2 = await axios.get(`/${params.explore}/${params.id}/recommendations`);
         setRecommands(response2.data);
+
+        const response3 = await axios.get(`/${params.explore}/${params.id}/credits`);
+        setCastData(response3.data);
+
       }catch(error) {
         console.log('Error:', error);
       }
@@ -31,8 +36,9 @@ const Detail = () => {
   }, [params.explore, params.id]);
 
 
+const duration = (Number(movieDetails?.runtime || movieDetails?.episode_run_time)/60).toFixed(1).split(".");
+const writer = castData?.crew?.filter(el => el.job === "Writer")?.map(el => el?.name).join(", ");
 
-console.log(movieDetails);
 
 
   return (
@@ -59,7 +65,7 @@ console.log(movieDetails);
             <span>|</span>
             <p>View : {Number(movieDetails?.popularity || 0).toFixed(0)} </p>
             <span>|</span>
-            <p>Duration: {movieDetails?.runtime || movieDetails?.episode_run_time}</p>
+            <p>Duration: {duration[0]? duration[0] : 0 }h {duration[1]? duration[1] : 0}m</p>
           </div>
           <hr></hr>
           <div className='poster-overview'>
@@ -76,11 +82,11 @@ console.log(movieDetails);
           </div>
           <hr></hr>
           <div>
-              <p className='poster-director'>Director: None</p>
+              <p className='poster-director'>Director: {castData?.crew?.[0].name}</p>
           </div>
           <hr></hr>
           <div className='poster-writer'>
-              <p>Writer: None</p>
+              <p>Writer: {writer}</p>
           </div>
           <hr></hr>
           <div className='poster-cast'>
